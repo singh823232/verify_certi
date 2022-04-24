@@ -113,12 +113,15 @@ app.post("/download", async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, (err) => {
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
+app.listen(port, (err) => {
     if (err) {
         console.log("something is wrong");
     }
     else {
-        console.log(`server is running on port ${PORT}`)
+        console.log(`server is running on port ${port}`)
     }
 })
