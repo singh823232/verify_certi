@@ -2,11 +2,11 @@ const express = require("express");
 const app = express();
 const participantData = require("./data/participant.js")
 const winnerData = require("./data/winner")
-const { PDFDocument, StandardFonts, rgb, degrees } = require("pdf-lib")
+const { PDFDocument, StandardFonts, rgb } = require("pdf-lib")
 const { readFile, writeFile } = require("fs/promises")
 const cors = require("cors")
 const path = require("path")
-
+const alert = require('alert')
 
 
 app.set('view engine', 'ejs')
@@ -103,7 +103,11 @@ app.post("/download", async (req, res) => {
             res.download(`./certificate/${data.name}.pdf`)
         }
         else {
-            res.send("authentication failed");
+            // res.render(  [, locals] [, callback])
+            alert("Authentication failed");
+            res.render("verify")
+
+
         }
     } catch (error) {
         res.send(error)
