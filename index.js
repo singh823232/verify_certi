@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const participantData = require("./data/participant.js")
+const winnerData = require("./data/winner")
 const { PDFDocument, StandardFonts, rgb, degrees } = require("pdf-lib")
 const { readFile, writeFile } = require("fs/promises")
 const cors = require("cors")
@@ -9,7 +10,6 @@ const path = require("path")
 
 
 app.set('view engine', 'ejs')
-// console.log(app.get('views'));
 app.use(express.json());      // for json format
 app.use(express.urlencoded({
     extended: false
@@ -56,12 +56,23 @@ async function createPdf(input, output, name, student_no) {
     }
 
 }
+// for (var i = 0; i < participantData.length; i++) {
+//     createPdf("./data/certiParticipant.pdf", `./certificate/${participantData[i].name}.pdf`, `${participantData[i].name.toUpperCase()}`, `${participantData[i].student_no}`)
+// }
 
 var flag = 0;
 const verifyCerti = (name, student_no) => {
     for (var i = 0; i < participantData.length; i++) {
         if (name.toUpperCase() === participantData[i].name.toUpperCase() && student_no === participantData[i].student_no) {
             flag = 1;
+            return;
+        }
+    }
+
+
+    for (var i = 0; i < winnerData.length; i++) {
+        if (name.toUpperCase() === winnerData[i].name.toUpperCase() && student_no === winnerData[i].student_no) {
+            flag = 2;
             return;
         }
     }
@@ -80,8 +91,14 @@ app.post("/download", async (req, res) => {
         console.log(data)
         await verifyCerti(data.name, data.student_no);
         if (flag === 1) {
-            await createPdf("./data/certiParticipant.pdf", `./certificate/${data.name}.pdf`, `${data.name.toUpperCase()}`, `${data.student_no}`)
             flag = 0;
+            await createPdf("./data/certiParticipant.pdf", `./certificate/${data.name}.pdf`, `${data.name.toUpperCase()}`, `${data.student_no}`)
+            // res.download(`./certificate/${data.name}.pdf`)
+            res.download(`./certificate/${data.name}.pdf`)
+        }
+        else if (flag === 2) {
+            flag = 0;
+            await createPdf("./data/winnerCerti.pdf", `./certificate/${data.name}.pdf`, `${data.name.toUpperCase()}`, `${data.student_no}`)
             // res.download(`./certificate/${data.name}.pdf`)
             res.download(`./certificate/${data.name}.pdf`)
         }
