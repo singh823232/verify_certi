@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: "Muli" , sans-serif;
+}
+
+.menu_active {
+  font-weight: bold;
+  border-bottom: 1px solid #565387;
+  transition: ease;
+}
+
+.navbar{
+  background: #fff !important;
+}
+
+.navbar-brand {
+  /* font-size: 1.9rem !important; */
+  color: #565387 !important;
+}
+
+.navbar a{
+  /* font-size: 1.3rem; */
+  text-transform: capitalize;
+}
+
+.navbar a:hover{
+  color: #3498db !important;
+}
+
+@media (max-width: 991px)  {
+  .navbar-brand {
+      font-size: 1.3rem !important;
+    }
+    .menu_active{
+      font-weight: bold;
+      border-bottom: none;
+    }
+  
+}
+
+#header{
+  width: 100%;
+  height: 80vh;
+  margin-top: 70px;
+}
+
+
+
+#header h1{
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  color: black;
+}
+
+#header .btn-get-started {
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #3498db;
+    display: inline-block;
+    border: 2px solid #3498db;
+    border-radius: 50px;
+    padding: 10px 30px;
+    transition: 0.2s;
+
+}
+
+#header .btn-get-started:hover{
+  background-color: #3498db;
+  color: #fff;
+}
+
+#header .brand-name{
+  color: #3498db;
+
+}
+
+#header h2{
+  color: #484848;
+  font-size: 24px;
+}
+
+#header .animated{
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.card img{
+  width: 100%;
+  height: 30vh;
+}
+
+
+/* ############################### log in form ka css ##################################### */
+
+.register{
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  margin-top: 3%;
+  padding: 3%;
+}
+.register-left{
+  text-align: center;
+  color: #fff;
+  margin-top: 4%;
+}
+.register-left a{
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  width: 60%;
+  background: #f8f9fa;
+  text-decoration: none;
+  font-weight: bold;
+  color: #383d41;
+  margin-top: 30%;
+  margin-bottom: 3%;
+  cursor: pointer;
+}
+.register-right{
+  background: #f8f9fa;
+  border-top-left-radius: 10% 50%;
+  border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+  margin-top: 15%;
+  margin-bottom: 5%;
+  width: 25%;
+  -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+.register-left p{
+  font-weight: lighter;
+  padding: 12%;
+  margin-top: -9%;
+}
+.register .register-form{
+  padding: 10%;
+  margin-top: 10%;
+}
+.btnRegister{
+  /* float: right; */
+  margin-top: 10%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  background: #0062cc;
+  color: #fff;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
+}
+/*.register .nav-tabs{*/
+/*    margin-top: 3%;*/
+/*    border: none;*/
+/*    background: #0062cc;*/
+/*    border-radius: 1.5rem;*/
+/*    width: 28%;*/
+/*    float: right;*/
+/*}*/
+/*.register .nav-tabs .nav-link{*/
+/*    padding: 2%;*/
+/*    height: 34px;*/
+/*    font-weight: 600;*/
+/*    color: #fff;*/
+/*    border-top-right-radius: 1.5rem;*/
+/*    border-bottom-right-radius: 1.5rem;*/
+/*}*/
+/*.register .nav-tabs .nav-link:hover{*/
+/*    border: none;*/
+/*}*/
+/*.register .nav-tabs .nav-link.active{*/
+/*    width: 100px;*/
+/*    color: #0062cc;*/
+/*    border: 2px solid #0062cc;*/
+/*    border-top-left-radius: 1.5rem;*/
+/*    border-bottom-left-radius: 1.5rem;*/
+/*}*/
+.register-heading{
+  text-align: center;
+  margin-top: 8%;
+  margin-bottom: -15%;
+  color: #495057;
+}
+
+.register .form-group {
+  margin: 2vh 0 1vh 0;
+  
+}
+
+
+/* ######################################### log in form ka css end hai ###################################### */
